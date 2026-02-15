@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css"/>
+  </head>
+  <body>
+   <div x-data={openDrawer:false}>
+     <!-- Mobile menu -->
+     <div class="z-40 lg:hidden">
+        <!-- BackDrop -->
+        <div x-show="openDrawer"  class="bg-black/15 fixed inset-0"></div>
+        <!-- drawer -->
+        <div x-show="openDrawer" @click.away="openDrawer=false"  class=" pb-14 z-40 flex flex-col overflow-y-auto bg-white shadow-xl inset-y-0 max-w-xs fixed w-full p-4">
+          <div class="w-full flex justify-end">
+            <button @click="openDrawer=false" class="flex items-center justify-center rounded-md text-gray-400 p-2 ">
+            <span class="sr-only">close</span>
+            <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke-width="1.5"
+             stroke="currentColor" 
+             class="size-6">
+
+            <path stroke-linecap="round"
+             stroke-linejoin="round"
+             d="M6 18 18 6M6 6l12 12" />
+            </svg>
+
+          </button>
+          </div>
+          <!-- link -->
+          <div x-data="{openTab:1}" class="mt-2">
+            <div class=" gap-x-8  grid grid-cols-2 border-b border-b-gray-200">
+              <button
+              @click="openTab=1"  
+               :class="openTab===1?'border-b-2 border-indigo-600':'border-b border-b-gray-200'"
+               class="whitespace-nowrap py-4  font-medium text-base">
+               Women
+              </button>
+              <button @click="openTab=2"
+              :class="openTab===2?'border-b-2 border-indigo-600':'border-b border-gray-200'"
+               class="whitespace-nowrap py-4  font-medium text-base">
+               Men
+              </button>
+            </div>
+            <!-- women panel -->
+             <div x-show="openTab===1 " class="pt-10 pb-8 text-gray-500 space-y-10 text-sm">
+              <div class="grid grid-cols-2 gap-x-4 font-medium">
+                <div class="group">
+                  <img class="group-hover:opacity-75 w-full object-cover aspect-square" src="https://tailwindui.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg" alt="">
+                  <a class="mt-4 block" href="">New Arrivals</a>
+                  <p class="mt-1">Shop Now</p>
+                </div>
+                <div class="group">
+                  <img class="group-hover:opacity-75 object-cover aspect-square" src="https://tailwindui.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg" alt="">
+                  <a class="mt-4 block" href="">Artwork tees</a>
+                  <p class="mt-1">Shop Now</p>
+                </div>
+              </div>
+                <div>
+                    <p class="font-medium text-gray-900">Clothing</p>
+                    <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Tops</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Dresses</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Pants</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Denim</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Sweaters</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">T-Shirt</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Jackets</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Activewear</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Browse All</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p
+                      class=" font-medium text-gray-900" >
+                      Accessories
+                    </p>
+                    <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Watches</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Wallets</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Bags</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Sunglasses</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Hats</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Belts</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p 
+                    class=" font-medium text-gray-900"
+                    >Brands
+                    </p>                 
+                    <ul class="space-y-6 mt-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Re-Arranged</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Counterfeit</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Full Nelson</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">My Way</a></li>
+                    </ul>
+                  </div>
+             </div>
+            <!-- men panel -->
+            <div x-show="openTab===2" class="pt-10 pb-8 space-y-10 text-gray-500 text-sm">
+              <div class=" grid grid-cols-2 gap-x-4">
+                <div class="group">
+                    <img class="group-hover:opacity-75 object-cover  w-full aspect-square"  src="https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="">
+                    <a class="mt-4 block" href="">New Arrivals</a>
+                    <p class="mt-1">Shop Now</p>
+                </div>
+                <div class="group">
+                    <img class="group-hover:opacity-75 object-cover w-full aspect-square" src="https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg" alt=""> 
+                    <a class="block mt-4" href="">Artwork tees</a>
+                    <p class="mt-1">Shop Now</p>
+                </div>
+              </div>
+                <div>
+                    <p class="font-medium text-gray-900">Clothing</p>
+                    <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Tops</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Dresses</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Pants</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Denim</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Sweaters</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">T-Shirt</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Jackets</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Activewear</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Browse All</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p
+                      class=" font-medium text-gray-900" >
+                      Accessories
+                    </p>
+                    <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Watches</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Wallets</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Bags</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Sunglasses</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Hats</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Belts</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p 
+                    class=" font-medium text-gray-900"
+                    >Brands
+                    </p>                 
+                    <ul class="space-y-6 mt-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Re-Arranged</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Counterfeit</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Full Nelson</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">My Way</a></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
+     </div>
+    <header class="relative">
+      <nav class="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="border-b border-gray-200">
+           <div class="flex items-center h-16">
+      <!-- mobile menu toggle -->
+          <button @click="openDrawer=true" class="rounded-md bg-white p-2 text-gray-700 lg:hidden">
+            <span class="sr-only">open modal</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+              />
+            </svg>
+          </button>
+          <!-- logo -->
+          <div class="ml-2 lg:ml-0">
+            <a  href="#">
+              <img
+              class="h-8 w-auto"
+              src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg"
+              alt=""
+            />
+          </a>
+            
+          </div>
+          <!-- main menu -->
+          <div class="hidden lg:flex gap-x-8 h-full lg:items-center lg:ml-4">
+            <div class="flex h-full gap-x-8" x-data="{open:null}">            
+              <div>
+              <button
+               @click="open=(open===1?null:1)" 
+               :class="open===1?' border-b-indigo-600 text-indigo-600':'border-transparent text-gray-700'"
+               class=" h-full flex items-center text-sm font-medium  border-b ">
+              <span class="sr-only">women catogory</span>
+              Women
+            </button>           
+            <div x-show="open===1" class=" absolute   mx-auto inset-x-0 px-8 top-full max-w-7xl min-h-96  text-sm text-gray-500">
+            <div class="grid grid-cols-2 py-16 gap-x-8 gap-y-10">
+              <div class="grid grid-cols-3 gap-x-8  ">
+                <div>
+                  <p 
+                  id="Clothing-heading"
+                  class=" font-medium text-gray-900" >
+                  Clothing
+                </p>
+                  <ul class="space-y-6 mt-6 sm:space-y-4 sm:mt-4">
+                    <li class="flex"><a class="hover:text-gray-800" href="">Tops</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Dresses</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Pants</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Denim</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Sweaters</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">T-Shirt</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Jackets</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Activewear</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Browse All</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p
+                   id="accessories-heading"
+                  class=" font-medium text-gray-900" >
+                  Accessories
+                </p>
+                  <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                    <li class="flex"><a class="hover:text-gray-800" href="">Watches</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Wallets</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Bags</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Sunglasses</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Hats</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Belts</a></li>
+                  </ul>
+                </div>
+                <div>
+                <p 
+                  id="Brands-heading"
+                  class=" font-medium text-gray-900"
+                  >Brands
+                </p>                 
+                  <ul class="space-y-6 mt-6 sm:space-y-4 sm:mt-4">
+                    <li class="flex"><a class="hover:text-gray-800" href="">Re-Arranged</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Counterfeit</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">Full Nelson</a></li>
+                    <li class="flex"><a class="hover:text-gray-800" href="">My Way</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class=" grid grid-cols-2 gap-x-8 ">
+                <div class="group">
+                  <img class="group-hover:opacity-75 rounded-lg w-full aspect-square bg-gray-100 object-cover" src="https://tailwindui.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg" alt="">
+                  <a class="mt-6 block text-gray-900" href="#">New Arrivals</a>
+                  <p class="mt-1" >Shop Now</p>
+                </div>
+                <div class="group">
+                  <img class="group-hover:opacity-75 rounded-lg w-full aspect-square bg-gray-100 object-cover " src="https://tailwindui.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg" alt="">
+                  <a class="mt-6 block text-gray-900" href="#">New Arrivals</a>
+                  <p class="mt-1">Shop Now</p>
+                </div>  
+              </div>
+            </div>
+            
+            </div>
+              </div>
+              <div>
+              <button 
+              :class="open===2?'text-indigo-600 border-b border-b-indigo-600':'text-gray-700'"
+               @click="open=(open===2?null:2)" 
+              class="flex items-center h-full text-sm font-medium ">
+              <span class="sr-only">men catogory</span>
+              Men
+            </button>
+            <div x-show="open===2" class="absolute mx-auto top-full max-w-7xl min-h-96 px-8 inset-x-0 text-sm text-gray-500">
+              <div class="grid grid-cols-2 gap-x-8 py-16 ">
+                <div class="grid grid-cols-3 gap-x-8">
+                  <div>
+                    <p class="font-medium text-gray-900">Clothing</p>
+                    <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Tops</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Dresses</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Pants</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Denim</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Sweaters</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">T-Shirt</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Jackets</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Activewear</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Browse All</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p
+                      class=" font-medium text-gray-900" >
+                      Accessories
+                    </p>
+                    <ul class="mt-6 space-y-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Watches</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Wallets</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Bags</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Sunglasses</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Hats</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Belts</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p 
+                    class=" font-medium text-gray-900"
+                    >Brands
+                    </p>                 
+                    <ul class="space-y-6 mt-6 sm:space-y-4 sm:mt-4">
+                      <li class="flex"><a class="hover:text-gray-800" href="">Re-Arranged</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Counterfeit</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">Full Nelson</a></li>
+                      <li class="flex"><a class="hover:text-gray-800" href="">My Way</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-x-8">
+                  <div class="group">
+                    <img class="aspect-square rounded-lg object-cover w-full group-hover:opacity-75 bg-gray-100 " src="https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="">
+                    <a class="mt-6 block text-gray-900" href="#">New Arrivals</a>
+                    <p class="mt-1">Shop Now</p>
+                  </div>
+                  <div class="group">
+                    <img  class="aspect-square rounded-lg object-cover w-full group-hover:opacity-75 bg-gray-100 " src="https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg" alt="">
+                    <a class="mt-6 block text-gray-900" href="#">Artwork tees</a>
+                    <p class="mt-1">Shop Now</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+
+            <a href="#" class="font-medium text-sm text-gray-700 hover:text-gray-800">Company</a>
+            <a href="#" class="font-medium text-sm text-gray-700 hover:text-gray-800">Stores</a>
+          </div>
+          <!-- search and acount -->
+          <div class="ml-auto flex items-center gap-x-4 lg:gap-x-6">
+            <div class=" gap-x-4 hidden lg:flex lg:items-center">
+              <a class="font-medium text-sm text-gray-700" href="">
+                Sign in
+              </a>
+              <span class="w-px h-4 bg-gray-700"></span>
+              <a class="font-medium text-sm text-gray-700 hover:text-gray-800 " href="">
+                Create Account
+              </a>
+            </div>
+            <!-- search -->
+            <div>
+              <a href="#" class=" p-2 text-gray-700 hover:text-gray-800">
+                <span class="sr-only">search</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <!-- cart -->
+            <div >
+              <a class="group flex items-center p-2 " href="">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 text-gray-700 group-hover:text-gray-800"
+                >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+                </svg>
+                <span class="ml-2 font-medium text-sm text-gray-700 group-hover:text-red-700">0</span>
+                <span class="sr-only">items cart in shop</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>   
+      </nav>
+    </header>
+   </div>
+   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+  </body>
+</html>
