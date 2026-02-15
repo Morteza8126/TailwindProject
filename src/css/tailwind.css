@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-gray-0: oklch(100% 0 0);
+  --color-gray-50: oklch(0.985 0.002 247.839);
+  --color-gray-100: oklch(0.967 0.003 264.542);
+  --color-gray-200: oklch(0.928 0.006 264.531);
+  --color-gray-300: oklch(0.872 0.01 258.338);
+  --color-gray-400: oklch(0.707 0.022 261.325);
+  --color-gray-500: oklch(0.551 0.027 264.364);
+  --color-gray-600: oklch(0.446 0.03 256.802);
+  --color-gray-700: oklch(0.373 0.034 259.733);
+  --color-gray-800: oklch(0.278 0.033 256.848);
+  --color-gray-900: oklch(0.21 0.034 264.665);
+  --color-gray-950: oklch(0.13 0.028 261.692);
+  
+  --color-app-bg: oklch(0.985 0.002 247.839);
+  --font-sans: sans-serif;
+}
+@variant dark{
+  
+  --color-gray-950: oklch(0.985 0.002 247.839);
+  --color-gray-900: oklch(0.967 0.003 264.542);
+  --color-gray-800: oklch(0.928 0.006 264.531);
+  --color-gray-700: oklch(0.872 0.01 258.338);
+  --color-gray-600: oklch(0.707 0.022 261.325);
+  --color-gray-500: oklch(0.551 0.027 264.364);
+  --color-gray-400: oklch(0.446 0.03 256.802);
+  --color-gray-300: oklch(0.373 0.034 259.733);
+  --color-gray-200: oklch(0.278 0.033 256.848);
+  --color-gray-100: oklch(0.21 0.034 264.665);
+  --color-gray-50: oklch(0.13 0.028 261.692);
+  --color-gray-0: oklch(0 0 0);
+
+  --color-app-bg: oklch(0.21 0.034 264.665);
+}
